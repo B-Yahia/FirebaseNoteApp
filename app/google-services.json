@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "894013873182",
+    "firebase_url": "https://secnoteapp.firebaseio.com",
+    "project_id": "secnoteapp",
+    "storage_bucket": "secnoteapp.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:894013873182:android:b3558022acc0d79f00e20f",
+        "android_client_info": {
+          "package_name": "com.example.secnoteapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "894013873182-t499jud3lk45p7m9jel4lm45mipgce74.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC46yArDRYCTHiAt0KP--fL4Pf36_0dsEE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "894013873182-t499jud3lk45p7m9jel4lm45mipgce74.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
