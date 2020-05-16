@@ -28,7 +28,7 @@ import java.util.Map;
 public class NewNoteActivity extends AppCompatActivity {
 
     private EditText noteTitle,noteDesc;
-    private Button createBtn,deleteBtn;
+    private Button createBtn,clearBtn;
 
     private FirebaseAuth firebaseAuth;
 
@@ -49,9 +49,9 @@ public class NewNoteActivity extends AppCompatActivity {
         noteDesc = findViewById(R.id.note_desc);
         noteTitle = findViewById(R.id.note_title);
         createBtn = findViewById(R.id.create_note_btn);
-        deleteBtn = findViewById(R.id.delete_note);
+        clearBtn = findViewById(R.id.clear_note);
 
-        deleteBtn.setOnClickListener(new View.OnClickListener() {
+        clearBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(NewNoteActivity.this, MainPageActivity.class);
@@ -74,19 +74,18 @@ public class NewNoteActivity extends AppCompatActivity {
                 Toast.makeText(this, "Ooops you forgot to type your note!", Toast.LENGTH_SHORT).show();
             }
 
+            String id = databaseReference.push().getKey();
+            NewNote nn = new NewNote(nTitle,nContent,id);
 
+//
+//            final DatabaseReference noteReference = databaseReference.push();
+//            final Map noteMap = new HashMap();
+//            noteMap.put("Note id",noteReference.getKey() );
+//            noteMap.put("title",nTitle);
+//            noteMap.put("content",nContent);
+//            noteMap.put("time", ServerValue.TIMESTAMP);
 
-
-
-
-            //final DatabaseReference noteReference = databaseReference.push();
-            final Map noteMap = new HashMap();
-            //noteMap.put("Note id",noteReference.getKey() );
-            noteMap.put("title",nTitle);
-            noteMap.put("content",nContent);
-            noteMap.put("time", ServerValue.TIMESTAMP);
-
-                    databaseReference.push().setValue(noteMap).addOnCompleteListener(new OnCompleteListener<Void>() {
+                    databaseReference.push().setValue(nn).addOnCompleteListener(new OnCompleteListener<Void>() {
                         @Override
                         public void onComplete(@NonNull Task<Void> task) {
                             if (task.isSuccessful()){
