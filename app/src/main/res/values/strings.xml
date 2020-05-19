@@ -1,3 +1,6 @@
 <resources>
     <string name="app_name">SecNoteApp</string>
+    <string name="checkbox">com.example.secnoteapp.signup.checkbox</string>
+    <string name="email">com.example.secnoteapp.signup.email</string>
+    <string name="password">com.example.secnoteapp.signup.password</string>
 </resources>

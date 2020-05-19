@@ -23,12 +23,12 @@
             android:id="@+id/connect_btn"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Connect to your account" />
+            android:text="Sign in" />
 
         <Button
             android:id="@+id/new_account_btn"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Create and account" />
+            android:text="Sign up" />
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
