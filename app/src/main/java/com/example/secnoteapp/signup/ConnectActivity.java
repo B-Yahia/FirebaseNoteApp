@@ -57,8 +57,7 @@ public class ConnectActivity extends AppCompatActivity {
         connectBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String email = userEmail.getText().toString();
-                String password = userPassword.getText().toString();
+
                 if (mCheckBox.isChecked()){
                     spEditor.putString(getString(R.string.checkbox), "True");
                     spEditor.commit();
@@ -73,16 +72,13 @@ public class ConnectActivity extends AppCompatActivity {
                 } else {
                     spEditor.putString(getString(R.string.checkbox), "False");
                     spEditor.commit();
-
-
                     spEditor.putString(getString(R.string.email),"");
                     spEditor.commit();
-
-
                     spEditor.putString(getString(R.string.password),"");
                     spEditor.commit();
-
                 }
+                String email = userEmail.getText().toString();
+                String password = userPassword.getText().toString();
 
                 updateUI(email,password);
             }

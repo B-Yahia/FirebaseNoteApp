@@ -7,12 +7,15 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 
 import com.example.secnoteapp.create_new_notes.NewNote;
 import com.example.secnoteapp.create_new_notes.NewNoteActivity;
 
+import com.example.secnoteapp.signup.MainActivity;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -40,6 +43,7 @@ public class MainPageActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main_page);
 
         newNote = findViewById(R.id.create_new_note_btn);
+
         recyclerView = findViewById(R.id.recyclerview);
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager( new LinearLayoutManager(this));
@@ -85,7 +89,23 @@ public class MainPageActivity extends AppCompatActivity {
 
 
 
+
     }
 
-
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu , menu);
+        return true;
+    }
+    public  boolean onOptionsItemSelected (MenuItem item){
+        switch (item.getItemId()){
+            case R.id.logoutMenu:{
+                firebaseAuth.signOut();
+                finish();
+                Intent intent = new Intent(MainPageActivity.this, MainActivity.class);
+                startActivity(intent);
+            }
+        }
+        return super.onOptionsItemSelected(item);
+    }
 }

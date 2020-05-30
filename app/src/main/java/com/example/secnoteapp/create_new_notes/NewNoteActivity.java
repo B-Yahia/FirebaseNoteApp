@@ -77,15 +77,7 @@ public class NewNoteActivity extends AppCompatActivity {
             String id = databaseReference.push().getKey();
             NewNote nn = new NewNote(nTitle,nContent,id);
 
-//
-//            final DatabaseReference noteReference = databaseReference.push();
-//            final Map noteMap = new HashMap();
-//            noteMap.put("Note id",noteReference.getKey() );
-//            noteMap.put("title",nTitle);
-//            noteMap.put("content",nContent);
-//            noteMap.put("time", ServerValue.TIMESTAMP);
-
-                    databaseReference.push().setValue(nn).addOnCompleteListener(new OnCompleteListener<Void>() {
+                    databaseReference.child(id).setValue(nn).addOnCompleteListener(new OnCompleteListener<Void>() {
                         @Override
                         public void onComplete(@NonNull Task<Void> task) {
                             if (task.isSuccessful()){
